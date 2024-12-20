@@ -1,0 +1,21 @@
+<div *ngIf="isLoading" class="loading-indicator">
+  <dx-load-panel [visible]="true" [message]="'Loading data...'" [showIndicator]="true"
+    [showPane]="true"></dx-load-panel>
+</div>
+
+<div *ngIf="!isLoading">
+  <dx-data-grid [dataSource]="countryReports" [showBorders]="true" [showRowLines]="true" [columnAutoWidth]="true"
+    [rowAlternationEnabled]="true" [hoverStateEnabled]="true" [paging]="{ pageSize: 7 }" [pager]="{
+      visible: true,
+      showPageSizeSelector: true,
+      allowedPageSizes: [3, 7, 14],
+      showNavigationButtons: true
+    }">
+    <dxi-column dataField="region.iso" caption="Iso" [allowFiltering]="true"></dxi-column>
+    <dxi-column dataField="region.name" caption="Χώρα" [allowFiltering]="true"></dxi-column>
+    <dxi-column dataField="confirmed" caption="Επιβεβαιωμένα" [allowFiltering]="true" alignment="center"></dxi-column>
+    <dxi-column dataField="active" caption="Ενεργά" [allowFiltering]="true" alignment="center"></dxi-column>
+    <dxi-column dataField="recovered" caption="Ανάρρωσαν" [allowFiltering]="false" alignment="center"></dxi-column>
+    <dxi-column dataField="deaths" caption="Θάνατοι" [allowFiltering]="true" alignment="center"></dxi-column>
+  </dx-data-grid>
+</div>
