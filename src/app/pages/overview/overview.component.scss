@@ -1,0 +1,33 @@
+.container {
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.results-container {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.results-header,
+.results-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.results-header {
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+}

@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="input-section">
+    <div class="row">
+      <div class="col">
+        <label for="country">Χώρα</label>
+        <dx-select-box id="country" [dataSource]="countries" displayExpr="name" valueExpr="iso"
+          [(value)]="selectedCountry" placeholder="Select Country"></dx-select-box>
+      </div>
+
+      <div class="col">
+        <label for="date">Ημερομηνία</label>
+        <dx-date-box id="date" [value]="selectedDate" (onValueChanged)="onDateChanged($event.value)" type="date"
+          [max]="yesterdayDate"></dx-date-box>
+      </div>
+
+      <div class="col">
+        <dx-button text="ΠΡΟΒΟΛΗ" (onClick)="fetchCountryStats()"></dx-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="results-section" *ngIf="countryStats">
+    <div class="results-container">
+      <div class="results-header">
+        <span>Country</span>
+        <span>Confirmed</span>
+        <span>Active</span>
+        <span>Deaths</span>
+        <span>Recovered</span>
+      </div>
+      <div class="results-row">
+        <span>{{ selectedCountry }}</span>
+        <span>{{ countryStats.confirmed }}</span>
+        <span>{{ countryStats.active }}</span>
+        <span>{{ countryStats.deaths }}</span>
+        <span>{{ countryStats.recovered }}</span>
+      </div>
+    </div>
+  </div>
+</div>
