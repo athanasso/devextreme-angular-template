@@ -1,0 +1,22 @@
+<dx-chart [dataSource]="weeklyData" [rotated]="false" title="Weekly Statistics">
+  <dxi-series argumentField="date" valueField="confirmed" type="line" name="Κρούσματα" color="blue"></dxi-series>
+  <dxi-series argumentField="date" valueField="deaths" type="line" name="Θάνατοι" color="red"></dxi-series>
+  <dxi-series argumentField="date" valueField="active" type="line" name="Ενεργά" color="green"></dxi-series>
+
+  <dxo-legend [visible]="true" [verticalAlignment]="'top'" [horizontalAlignment]="'right'"
+    [itemTextPosition]="'right'"></dxo-legend>
+
+  <dxo-argument-axis>
+    <dxo-label [format]="'yyyy-MM-dd'"></dxo-label>
+    <dxo-grid [visible]="true"></dxo-grid>
+  </dxo-argument-axis>
+
+  <dxi-value-axis>
+    <dxo-grid [visible]="true"></dxo-grid>
+    <dxo-title text="Count"></dxo-title>
+  </dxi-value-axis>
+
+  <dxo-tooltip [enabled]="true" [shared]="true" format="fixedPoint"></dxo-tooltip>
+
+  <dxo-export [enabled]="true"></dxo-export>
+</dx-chart>
